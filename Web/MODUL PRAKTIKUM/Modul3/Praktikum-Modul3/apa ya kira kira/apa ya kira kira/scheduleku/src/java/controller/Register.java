@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import database.MahasiswaAccess;
-import database.UserAccess;
-import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author FransiskaJesinta
@@ -79,9 +76,11 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
+       //processRequest(request, response);
        
-      
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
        String username = request.getParameter("username");
        String password = request.getParameter("password");
        String nama = request.getParameter("nama");
@@ -89,8 +88,15 @@ public class Register extends HttpServlet {
        String kelas = request.getParameter("kelas");
        
        MahasiswaAccess access = new MahasiswaAccess();
-       HttpSession session = request.getSession(true);
-       access.register(nim, nama, kelas, username, password);
+       
+//       Mahasiswa mahasiswaBean = new Mahasiswa(nim, nama, kelas, username);
+//       User userBean = new User(username, password);
+//       
+//    HttpSession session = request.getSession(true);
+       
+       //access.registeruser(username, password);
+       access.register(nim, nama, kelas, username);
+       
        response.sendRedirect("login.jsp");
        
     }

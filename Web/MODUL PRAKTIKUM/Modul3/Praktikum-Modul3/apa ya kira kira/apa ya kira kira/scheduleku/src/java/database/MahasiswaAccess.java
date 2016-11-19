@@ -11,10 +11,11 @@ package database;
  */
 
 import java.sql.*;
+import model.*;
 
 public class MahasiswaAccess {
-    public boolean register(String nim, String nama, String kelas, String username, String password){
-        boolean isRegistered = false;
+    public boolean register(String nim, String nama, String kelas, String username){
+        boolean isRegistered1 = false;
         
         DatabaseAccess access = DatabaseAccess.getInstance();
         
@@ -26,21 +27,46 @@ public class MahasiswaAccess {
          ps.setString(3, kelas);
          ps.setString(4, username);
          
-         PreparedStatement ps1 = conn.prepareStatement("Insert into Users values(?, ?)");
-         ps1.setString(1, username);
-         ps1.setString(2, password);
-         
-         ResultSet rs1 = ps1.executeQuery();
          ResultSet rs = ps.executeQuery();
          
-         if(rs.next()  && rs1.next() ){
-             isRegistered = true;
+         if(rs.next()){
+             isRegistered1 = true;
          }
          access.releaseConnection();
     } catch (SQLException e){
         e.printStackTrace();
     }
         
-        return isRegistered;
+        return isRegistered1;
     }
+    
+    
+//    public boolean registeruser(String username, String password){
+//         boolean isRegistered2 = false;
+//        
+//        DatabaseAccess access = DatabaseAccess.getInstance();
+//        
+//        try{
+//         Connection conn = access.getConnection();
+//         
+//         PreparedStatement ps = conn.prepareStatement("Insert into Users values(?, ?)");
+//         
+//         ps.setInt(1, Integer.parseInt(username));
+//         ps.setInt(2, Integer.parseInt(password));
+//         
+////         ps.setString(1, username);u
+////         ps.setString(2, password);
+//         
+//        int updateQuery = ps.executeUpdate();
+//         
+//         if(updateQuery>0){
+//             isRegistered2 = true;
+//         }
+//         access.releaseConnection();
+//    } catch (SQLException e){
+//        e.printStackTrace();
+//    }
+//        
+//        return isRegistered2;
+//    }
 }

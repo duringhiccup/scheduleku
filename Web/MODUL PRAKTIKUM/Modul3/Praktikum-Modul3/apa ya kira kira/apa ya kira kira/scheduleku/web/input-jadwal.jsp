@@ -10,19 +10,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet/stylesheet1.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <table>
-            <tr>
-                <td>Jam</td>
-                <td>Senin</td>
-                <td>Selasa</td>
-                <td>Rabu</td>
-                <td>Kamis</td>
-                <td>Jumat</td>
-                <td>Sabtu</td>
-            </tr>
-        </table>
+         <div id="wrapper">
+        <div id="header">
+            
+            Scheduleku
+                <li style="float: right"><% out.print("Halo, " + session.getAttribute("username")) ;%></li>
+            
+        </div>
+        <div id="navbar">
+              <ul>
+                  <li><a href="home.jsp">Home</a></li>
+                  <li><a class="active" href="#inputjadwal">Input Jadwal</a></li>
+                  <li><a href="#lihatdata">Lihat Data</a></li>
+                  
+            </ul>
+        </div>
+            
+            <div class="content">
+                <p>Masih Kosong :p</p>
+            </div>   
+            
+        </div>
     </body>
 </html>

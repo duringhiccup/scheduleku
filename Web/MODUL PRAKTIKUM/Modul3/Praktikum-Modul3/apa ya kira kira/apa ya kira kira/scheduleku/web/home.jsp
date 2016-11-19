@@ -23,7 +23,7 @@
         <div id="navbar">
               <ul>
                   <li><a class="active" href="#home">Home</a></li>
-                  <li><a href="#inputjadwal">Input Jadwal</a></li>
+                  <li><a href="input-jadwal.jsp">Input Jadwal</a></li>
                   <li><a href="#lihatdata">Lihat Data</a></li>
                   
             </ul>
